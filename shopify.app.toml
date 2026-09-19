@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "c36948ab48ffccf6527d512b20a2753b"
+application_url = "https://duty-tournament-gulf-speak.trycloudflare.com"
+embedded = true
+name = "Mahnoor Gulzar"
+
+[build]
+automatically_update_urls_on_dev = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+# write_products also grants read access to products.
+scopes = "write_products"
+
+[webhooks]
+api_version = "2026-10"
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/app/uninstalled"
+  topics = [ "app/uninstalled" ]
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/app/scopes_update"
+  topics = [ "app/scopes_update" ]
+
+  [[webhooks.subscriptions]]
+  uri = "/webhooks/products/update"
+  topics = [ "products/update" ]
+
+[auth]
+redirect_urls = [ "https://duty-tournament-gulf-speak.trycloudflare.com/auth/callback", "https://duty-tournament-gulf-speak.trycloudflare.com/auth/shopify/callback", "https://duty-tournament-gulf-speak.trycloudflare.com/api/auth/callback" ]
